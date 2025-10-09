@@ -1,23 +1,53 @@
-import Foundation
 import Capacitor
+import CoreTelephony
+import Foundation
 
-/**
- * Please read the Capacitor iOS Plugin Development Guide
- * here: https://capacitorjs.com/docs/plugins/ios
- */
 @objc(SimPlugin)
 public class SimPlugin: CAPPlugin, CAPBridgedPlugin {
     public let identifier = "SimPlugin"
     public let jsName = "Sim"
     public let pluginMethods: [CAPPluginMethod] = [
-        CAPPluginMethod(name: "echo", returnType: CAPPluginReturnPromise)
+        CAPPluginMethod(name: "getSimCards", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "checkPermissions", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "requestPermissions", returnType: CAPPluginReturnPromise)
     ]
-    private let implementation = Sim()
 
-    @objc func echo(_ call: CAPPluginCall) {
-        let value = call.getString("value") ?? ""
+    @objc func getSimCards(_ call: CAPPluginCall) {
+        let telephonyInfo = CTTelephonyNetworkInfo()
+        var result: [[String: Any]] = []
+
+        if let carriers = telephonyInfo.serviceSubscriberCellularProviders?.values, !carriers.isEmpty {
+            for carrier in carriers {
+                result.append(buildCarrierPayload(from: carrier))
+            }
+        } else if let carrier = telephonyInfo.subscriberCellularProvider {
+            result.append(buildCarrierPayload(from: carrier))
+        }
+
         call.resolve([
-            "value": implementation.echo(value)
+            "simCards": result
         ])
+    }
+
+    @objc override public func checkPermissions(_ call: CAPPluginCall) {
+        call.resolve([
+            "readSimCard": "granted"
+        ])
+    }
+
+    @objc override public func requestPermissions(_ call: CAPPluginCall) {
+        call.resolve([
+            "readSimCard": "granted"
+        ])
+    }
+
+    private func buildCarrierPayload(from carrier: CTCarrier) -> [String: Any] {
+        return [
+            "allowsVOIP": carrier.allowsVOIP,
+            "carrierName": carrier.carrierName ?? "",
+            "isoCountryCode": carrier.isoCountryCode ?? "",
+            "mobileCountryCode": carrier.mobileCountryCode ?? "",
+            "mobileNetworkCode": carrier.mobileNetworkCode ?? ""
+        ]
     }
 }
