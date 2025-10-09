@@ -27,7 +27,12 @@
   "keywords": [
     "capacitor",
     "plugin",
-    "native"
+    "native",
+    "sim",
+    "sim card",
+    "android",
+    "ios",
+    "sim info"
   ],
   "scripts": {
     "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
