@@ -1,6 +1,6 @@
 {
   "appId": "app.capgo.sim",
-  "appName": "SIM Example",
+  "appName": "Sim Example",
   "webDir": "dist",
   "plugins": {
     "SplashScreen": {
