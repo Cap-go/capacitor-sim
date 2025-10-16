@@ -8,17 +8,97 @@
       content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <meta name="format-detection" content="telephone=no" />
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: #0f172a;
+        color: #e2e8f0;
+      }
+      body {
+        margin: 0;
+        padding: 24px;
+      }
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      section {
+        background: rgba(15, 23, 42, 0.75);
+        border-radius: 14px;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        padding: 1.25rem;
+      }
+      .button-row {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin-bottom: 0.75rem;
+      }
+      button {
+        border: none;
+        border-radius: 999px;
+        padding: 0.65rem 1.4rem;
+        background: linear-gradient(120deg, #22d3ee, #6366f1);
+        color: #0f172a;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      pre {
+        background: rgba(15, 23, 42, 0.6);
+        border-radius: 12px;
+        padding: 1rem;
+        margin: 0;
+        overflow-x: auto;
+      }
+      .cards-grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      }
+      .card {
+        background: rgba(15, 23, 42, 0.65);
+        border-radius: 12px;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        padding: 0.75rem;
+      }
+      .card h3 {
+        margin-top: 0;
+      }
+      .meta {
+        margin: 0.35rem 0 0 0;
+        font-size: 0.95rem;
+      }
+    </style>
   </head>
   <body>
     <main>
-      <h1>Capacitor Test Plugin Project</h1>
+      <h1>@capgo/capacitor-sim Demo</h1>
       <p>
-        This project can be used to test out the functionality of your plugin. Nothing in the
-        <em>example-app/</em> folder will be published to npm when using this template, so you can create away!
+        Run permission checks and inspect SIM card data returned by the native plugin. Most APIs only provide data on real devices.
       </p>
-      <label for="echoInput">Echo Text:</label>
-      <input type="text" id="echoInput" name="echoInput" value="Hello World!" />
-      <button onclick="testEcho()">Click Me!</button>
+
+      <section>
+        <div class="button-row">
+          <button id="checkPermissionsButton" type="button">Check Permissions</button>
+          <button id="requestPermissionsButton" type="button">Request Permissions</button>
+          <button id="getSimCardsButton" type="button">Get SIM Cards</button>
+        </div>
+        <p id="statusLine">Status: Idle</p>
+      </section>
+
+      <section>
+        <h2>Permission Result</h2>
+        <pre id="permissionsOutput">No requests yet.</pre>
+      </section>
+
+      <section>
+        <h2>SIM Cards</h2>
+        <div id="cardsContainer" class="cards-grid"></div>
+      </section>
     </main>
 
     <script src="./js/example.js" type="module"></script>
