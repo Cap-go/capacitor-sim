@@ -14,4 +14,8 @@ export class SimWeb extends WebPlugin implements SimPlugin {
   async requestPermissions(): Promise<PermissionStatus> {
     return this.checkPermissions();
   }
+
+  async getPluginVersion(): Promise<{ version: string }> {
+    return { version: 'web' };
+  }
 }

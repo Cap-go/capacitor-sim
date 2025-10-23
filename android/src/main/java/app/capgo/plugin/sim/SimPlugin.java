@@ -28,6 +28,8 @@ import java.util.List;
 )
 public class SimPlugin extends Plugin {
 
+    private final String PLUGIN_VERSION = "";
+
     static final String READ_PHONE_STATE = "readPhoneState";
     static final String READ_PHONE_NUMBERS = "readPhoneNumbers";
     private static final String PERMISSION_DENIED_ERROR = "Unable to get information from SIM cards, user denied permission request.";
@@ -120,5 +122,16 @@ public class SimPlugin extends Plugin {
         }
 
         return results;
+    }
+
+    @PluginMethod
+    public void getPluginVersion(final PluginCall call) {
+        try {
+            final JSObject ret = new JSObject();
+            ret.put("version", this.PLUGIN_VERSION);
+            call.resolve(ret);
+        } catch (final Exception e) {
+            call.reject("Could not get plugin version", e);
+        }
     }
 }
