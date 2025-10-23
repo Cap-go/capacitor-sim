@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.1.1](https://github.com/Cap-go/capacitor-sim/compare/7.1.0...7.1.1) (2025-10-23)
+
+
+### Bug Fixes
+
+* definition ([ab32264](https://github.com/Cap-go/capacitor-sim/commit/ab322640dbf02a6b77270ef5f9b97dc9b00e3d95))
+* remove footer in discord ([c3fa69c](https://github.com/Cap-go/capacitor-sim/commit/c3fa69cc064f62c34eb5e316c770f759aed9a486))
+* update Discord release notification username to include repository name ([151eede](https://github.com/Cap-go/capacitor-sim/commit/151eedee82fbe88c4b1dc57ed5b8e51218f1db9f))
+
 ## [7.1.0](https://github.com/Cap-go/capacitor-sim/compare/7.0.8...7.1.0) (2025-10-23)
 
 
