@@ -123,6 +123,10 @@ A SIM card description.
 | **`mobileCountryCode`** | <code>string</code>  | Mobile Country Code (MCC) of the service provider. On iOS 16.4+ the system may return placeholder values such as `65535`. See https://github.com/jonz94/capacitor-sim/issues/8 for details. | 1.0.0 |
 | **`mobileNetworkCode`** | <code>string</code>  | Mobile Network Code (MNC) of the service provider. On iOS 16.4+ the system may return placeholder values such as `65535`. See https://github.com/jonz94/capacitor-sim/issues/8 for details. | 1.0.0 |
 
+| Method               | Signature                                    | Description                             |
+| -------------------- | -------------------------------------------- | --------------------------------------- |
+| **getPluginVersion** | () =&gt; Promise&lt;{ version: string; }&gt; | Get the native Capacitor plugin version |
+
 
 #### PermissionStatus
 
