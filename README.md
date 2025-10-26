@@ -7,6 +7,10 @@
 </div>
 Capacitor plugin to get information from device's sim cards
 
+## Documentation
+
+The most complete doc is available here: https://capgo.app/docs/plugins/sim/
+
 ## Install
 
 ```bash
