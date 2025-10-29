@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.1.5](https://github.com/Cap-go/capacitor-sim/compare/7.1.4...7.1.5) (2025-10-29)
+
+
+### Bug Fixes
+
+* CI/CD config ([ca78afe](https://github.com/Cap-go/capacitor-sim/commit/ca78afed9ffa3f9b01329db51f62f7619cd3d5e9))
+* model github action ([a953a73](https://github.com/Cap-go/capacitor-sim/commit/a953a73b781c5b5c545d574c56fa597dec4e3605))
+* update github action ([7a38fac](https://github.com/Cap-go/capacitor-sim/commit/7a38facdaeed4cd320884309087a9df1c5e78852))
+
 ## [7.1.4](https://github.com/Cap-go/capacitor-sim/compare/7.1.3...7.1.4) (2025-10-27)
 
 

@@ -28,7 +28,7 @@ import java.util.List;
 )
 public class SimPlugin extends Plugin {
 
-    private final String PLUGIN_VERSION = "7.1.4";
+    private final String PLUGIN_VERSION = "7.1.5";
 
     static final String READ_PHONE_STATE = "readPhoneState";
     static final String READ_PHONE_NUMBERS = "readPhoneNumbers";
