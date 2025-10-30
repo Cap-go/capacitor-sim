@@ -52,6 +52,11 @@ Starting with iOS 16.4 Apple restricts access to several carrier fields returned
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
+Capacitor SIM Plugin for retrieving information from device SIM cards.
+
+This plugin provides access to SIM card information such as carrier name,
+country code, mobile network codes, and more. Supports dual-SIM devices.
+
 ### getSimCards()
 
 ```typescript
@@ -59,6 +64,10 @@ getSimCards() => Promise<GetSimCardsResult>
 ```
 
 Get information from the device's SIM cards.
+
+Retrieves details about all SIM cards installed in the device.
+On dual-SIM devices, returns information for both SIM cards.
+Requires READ_PHONE_STATE permission on Android.
 
 **Returns:** <code>Promise&lt;<a href="#getsimcardsresult">GetSimCardsResult</a>&gt;</code>
 
@@ -75,7 +84,10 @@ checkPermissions() => Promise<PermissionStatus>
 
 Check permission to access SIM card information.
 
-On iOS and Web the status is always granted or denied respectively without prompting.
+Checks if the app has permission to read SIM card data.
+On Android, checks READ_PHONE_STATE permission.
+On iOS, the status is always granted.
+On Web, the status is always denied.
 
 **Returns:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
 
@@ -92,7 +104,10 @@ requestPermissions() => Promise<PermissionStatus>
 
 Request permission to access SIM card information.
 
-On iOS the status is always granted. On Web the status remains denied.
+Prompts the user to grant permission to read SIM card data.
+On Android, requests READ_PHONE_STATE permission.
+On iOS, the status is always granted without prompting.
+On Web, the status remains denied.
 
 **Returns:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
 
@@ -107,9 +122,11 @@ On iOS the status is always granted. On Web the status remains denied.
 getPluginVersion() => Promise<{ version: string; }>
 ```
 
-Get the native Capacitor plugin version
+Get the native Capacitor plugin version.
 
 **Returns:** <code>Promise&lt;{ version: string; }&gt;</code>
+
+**Since:** 1.0.0
 
 --------------------
 
@@ -140,10 +157,6 @@ A SIM card description.
 | **`isoCountryCode`**    | <code>string</code>  | ISO 3166-1 alpha-2 country code of the service provider. On iOS 16.4+ the system may return an empty string or `--`. See https://github.com/jonz94/capacitor-sim/issues/8 for details.      | 1.0.0 |
 | **`mobileCountryCode`** | <code>string</code>  | Mobile Country Code (MCC) of the service provider. On iOS 16.4+ the system may return placeholder values such as `65535`. See https://github.com/jonz94/capacitor-sim/issues/8 for details. | 1.0.0 |
 | **`mobileNetworkCode`** | <code>string</code>  | Mobile Network Code (MNC) of the service provider. On iOS 16.4+ the system may return placeholder values such as `65535`. See https://github.com/jonz94/capacitor-sim/issues/8 for details. | 1.0.0 |
-
-| Method               | Signature                                    | Description                             |
-| -------------------- | -------------------------------------------- | --------------------------------------- |
-| **getPluginVersion** | () =&gt; Promise&lt;{ version: string; }&gt; | Get the native Capacitor plugin version |
 
 
 #### PermissionStatus

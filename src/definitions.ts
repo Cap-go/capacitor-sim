@@ -9,39 +9,97 @@ export interface PermissionStatus {
   readSimCard: PermissionState;
 }
 
+/**
+ * Capacitor SIM Plugin for retrieving information from device SIM cards.
+ *
+ * This plugin provides access to SIM card information such as carrier name,
+ * country code, mobile network codes, and more. Supports dual-SIM devices.
+ *
+ * @since 1.0.0
+ */
 export interface SimPlugin {
   /**
    * Get information from the device's SIM cards.
    *
+   * Retrieves details about all SIM cards installed in the device.
+   * On dual-SIM devices, returns information for both SIM cards.
+   * Requires READ_PHONE_STATE permission on Android.
+   *
+   * @returns Promise that resolves with SIM cards information
+   * @throws Error if permission is denied or reading SIM info fails
    * @since 1.0.0
+   * @example
+   * ```typescript
+   * const { simCards } = await SimPlugin.getSimCards();
+   * simCards.forEach((sim, index) => {
+   *   console.log(`SIM ${index + 1}:`);
+   *   console.log(`  Carrier: ${sim.carrierName}`);
+   *   console.log(`  Country: ${sim.isoCountryCode}`);
+   *   console.log(`  MCC: ${sim.mobileCountryCode}`);
+   *   console.log(`  MNC: ${sim.mobileNetworkCode}`);
+   * });
+   * ```
    */
   getSimCards(): Promise<GetSimCardsResult>;
 
   /**
    * Check permission to access SIM card information.
    *
-   * On iOS and Web the status is always granted or denied respectively without prompting.
+   * Checks if the app has permission to read SIM card data.
+   * On Android, checks READ_PHONE_STATE permission.
+   * On iOS, the status is always granted.
+   * On Web, the status is always denied.
    *
+   * @returns Promise that resolves with permission status
+   * @throws Error if checking permissions fails
    * @since 1.0.0
+   * @example
+   * ```typescript
+   * const status = await SimPlugin.checkPermissions();
+   * if (status.readSimCard === 'granted') {
+   *   console.log('Permission granted');
+   * } else {
+   *   console.log('Permission not granted');
+   * }
+   * ```
    */
   checkPermissions(): Promise<PermissionStatus>;
 
   /**
    * Request permission to access SIM card information.
    *
-   * On iOS the status is always granted. On Web the status remains denied.
+   * Prompts the user to grant permission to read SIM card data.
+   * On Android, requests READ_PHONE_STATE permission.
+   * On iOS, the status is always granted without prompting.
+   * On Web, the status remains denied.
    *
+   * @returns Promise that resolves with permission status after the request
+   * @throws Error if the permission request fails
    * @since 1.0.0
+   * @example
+   * ```typescript
+   * const status = await SimPlugin.requestPermissions();
+   * if (status.readSimCard === 'granted') {
+   *   // Now you can call getSimCards()
+   *   const simCards = await SimPlugin.getSimCards();
+   * }
+   * ```
    */
   requestPermissions(): Promise<PermissionStatus>;
 
-    /**
-     * Get the native Capacitor plugin version
-     *
-     * @returns {Promise<{ id: string }>} an Promise with version for this device
-     * @throws An error if the something went wrong
-     */
-    getPluginVersion(): Promise<{ version: string }>;
+  /**
+   * Get the native Capacitor plugin version.
+   *
+   * @returns Promise that resolves with the plugin version
+   * @throws Error if getting the version fails
+   * @since 1.0.0
+   * @example
+   * ```typescript
+   * const { version } = await SimPlugin.getPluginVersion();
+   * console.log('Plugin version:', version);
+   * ```
+   */
+  getPluginVersion(): Promise<{ version: string }>;
 }
 
 /**
@@ -126,12 +184,4 @@ export interface SimCard {
    * @since 1.0.0
    */
   mobileNetworkCode: string;
-
-  /**
-   * Get the native Capacitor plugin version
-   *
-   * @returns {Promise<{ id: string }>} an Promise with version for this device
-   * @throws An error if the something went wrong
-   */
-  getPluginVersion(): Promise<{ version: string }>;
 }
