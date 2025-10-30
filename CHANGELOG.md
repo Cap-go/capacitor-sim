@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.1.7](https://github.com/Cap-go/capacitor-sim/compare/7.1.6...7.1.7) (2025-10-30)
+
+
+### Bug Fixes
+
+* pluginVersion lint issue ([a872a30](https://github.com/Cap-go/capacitor-sim/commit/a872a3053621656bd0369e4b737cd641e9fcceaa))
+
 ## [7.1.6](https://github.com/Cap-go/capacitor-sim/compare/7.1.5...7.1.6) (2025-10-30)
 
 ## [7.1.5](https://github.com/Cap-go/capacitor-sim/compare/7.1.4...7.1.5) (2025-10-29)
