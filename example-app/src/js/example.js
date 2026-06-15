@@ -1,3 +1,5 @@
+import { CapacitorUpdater } from '@capgo/capacitor-updater';
+import { Capacitor } from '@capacitor/core';
 import { Sim } from '@capgo/capacitor-sim';
 
 const checkPermissionsButton = document.getElementById('checkPermissionsButton');
@@ -85,3 +87,9 @@ getSimCardsButton?.addEventListener('click', async () => {
     setStatus(`Get SIM cards failed: ${message}`);
   }
 });
+
+if (Capacitor.isNativePlatform()) {
+  CapacitorUpdater.notifyAppReady().catch((error) => {
+    console.error('Capgo notifyAppReady failed', error);
+  });
+}
