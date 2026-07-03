@@ -4,7 +4,7 @@ import pkg from './package.json';
 
 const config: CapacitorConfig = {
   appId: 'app.capgo.sim',
-  appName: 'Sim Example',
+  appName: '@capgo/capacitor-sim',
   webDir: 'dist',
   plugins: {
     SplashScreen: {
