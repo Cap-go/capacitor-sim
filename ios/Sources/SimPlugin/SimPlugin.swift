@@ -4,7 +4,7 @@ import Foundation
 
 @objc(SimPlugin)
 public class SimPlugin: CAPPlugin, CAPBridgedPlugin {
-    private let pluginVersion: String = "8.0.37"
+    private let pluginVersion: String = "8.0.38"
     public let identifier = "SimPlugin"
     public let jsName = "Sim"
     public let pluginMethods: [CAPPluginMethod] = [
