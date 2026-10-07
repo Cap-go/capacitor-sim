@@ -18,7 +18,7 @@ Read SIM card details in your Capacitor app, including carrier, country and netw
 ## Key features
 
 - **SIM info**: `getSimCards()` returns the available SIM records with carrier name, ISO country code, MCC and MNC.
-- **Dual SIM on Android**: one entry per active subscription with its slot index and, when available, the phone number.
+- **Android subscriptions**: one entry per active subscription with its slot index and, when available, the phone number.
 - **Permissions**: `checkPermissions()` and `requestPermissions()` for phone state access on Android.
 - **iOS**: carrier data from Core Telephony. On iOS 16.4 and later the system may return `65535`, `--` or empty strings instead of real values.
 - **Platforms**: iOS and Android. Not available on web.
