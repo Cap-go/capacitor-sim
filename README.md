@@ -1,11 +1,27 @@
 # @capgo/capacitor-sim
-<a href="https://capgo.app/"><img src="https://capgo.app/readme-banner.svg?repo=Cap-go/capacitor-sim" alt="Capgo - Instant updates for Capacitor" /></a>
+
+Read SIM card details in your Capacitor app, including carrier, country and network codes, with dual SIM support on Android.
+
+<a href="https://capgo.app/?ref=plugin_sim"><img src="https://capgo.app/readme-banner.svg?repo=Cap-go/capacitor-sim" alt="Capgo - Instant updates for Capacitor" /></a>
 
 <div align="center">
-  <h2><a href="https://capgo.app/?ref=plugin_sim"> ➡️ Get Instant updates for your App with Capgo</a></h2>
-  <h2><a href="https://capgo.app/consulting/?ref=plugin_sim"> Missing a feature? We’ll build the plugin for you 💪</a></h2>
+  <p><b>Capgo</b>: open-source live updates for Ionic and Capacitor apps. Ship OTA fixes and features instantly, without waiting for app store review.</p>
+  <h2><a href="https://capgo.app/register/?ref=plugin_sim">➡️ Get started for free</a></h2>
+  <p>14-day unlimited free trial. No credit card required</p>
+  <p><a href="https://capgo.app/consulting/?ref=plugin_sim">Missing a feature? We'll build the plugin for you 💪</a></p>
 </div>
-Capacitor plugin to get information from device's sim cards
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Cap-go/capacitor-sim/main/assets/github-social-preview.png" alt="@capgo/capacitor-sim for Capacitor apps" width="300" />
+</p>
+
+## Key features
+
+- **SIM info**: `getSimCards()` returns every SIM with carrier name, ISO country code, MCC and MNC.
+- **Dual SIM on Android**: one entry per slot with the slot index and, when available, the phone number.
+- **Permissions**: `checkPermissions()` and `requestPermissions()` for phone state access on Android.
+- **iOS**: carrier data from Core Telephony. On iOS 16.4 and later the system may return `--` or empty values.
+- **Platforms**: iOS and Android. Not available on web.
 
 ## Documentation
 
