@@ -8,6 +8,10 @@ on:
       - synchronize
       - ready_for_review
 
+concurrency:
+  group: pr-beta-prompt-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 permissions:
   issues: write
   pull-requests: write
