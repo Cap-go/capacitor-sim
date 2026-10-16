@@ -3,7 +3,6 @@
   "extends": [
     "github>Cap-go/.github:renovate-config"
   ],
-<<<<<<< HEAD
   "dependencyDashboard": false,
   "lockFileMaintenance": {
     "enabled": true,
@@ -11,8 +10,6 @@
     "automergeType": "pr",
     "platformAutomerge": true
   },
-=======
->>>>>>> origin/main
   "packageRules": [
     {
       "matchPackageNames": [
