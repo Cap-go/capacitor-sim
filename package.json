@@ -1,6 +1,6 @@
 {
   "name": "@capgo/capacitor-sim",
-  "version": "8.0.52",
+  "version": "8.0.53",
   "description": "Capacitor plugin to get information from device's sim cards",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
